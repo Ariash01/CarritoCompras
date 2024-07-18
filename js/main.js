@@ -71,7 +71,7 @@ function carritoDeCompras() {
         alert("No hay ítems en el carrito");
     }
 
-    let volverComprar = prompt("¿Deseas volver a comprar? Escribe 'si'.");
+    let volverComprar = prompt("¿Deseas volver a comprar? Escribe 'si', caso contrario ingresa cualquier letra o número para salir.");
     if (volverComprar.toLowerCase() == 'si'){
         carritoDeCompras();
     }
