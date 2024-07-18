@@ -22,6 +22,33 @@ function obtenerPrecio(opcion){
     }
 }
 
+function datos(){
+    alert("¡Ingresa tus datos para realizar el envío!");
+
+    let nombre;
+    let nombreValido = false;
+    while (!nombreValido) {
+        nombre = prompt("Por favor, ingresa tu nombre:");
+        if (nombre && nombre.match(/^[A-Za-z\s]+$/)) {
+            nombreValido = true;
+        } else {
+            alert("El nombre no puede estar vacío o contener números. Por favor, ingresa tu nombre.");
+        }
+    }
+
+    let direccion;
+    let direccionValida = false;
+    while (!direccionValida) {
+        direccion = prompt("Ingresa tu dirección:");
+        if (direccion.trim() !== '') {
+            direccionValida = true;
+        } else {
+            alert("La dirección no puede estar vacía. Por favor, ingresa tu dirección.");
+        }
+    }
+    return alert("Muchas gracias " + nombre + " por comprar en nuestra tienda, enviaremos tu pedido a la dirección " + direccion + ".");
+}
+
 
 function carritoDeCompras() {
     let total = 0;
@@ -37,7 +64,13 @@ function carritoDeCompras() {
             alert("Compra finalizada.\nTotal a pagar: $" + total);
         }
     } while (opcion !== '5');
-    alert("Gracias por comprar. Pronto nos contactaremos para realizar el envío de los productos.");
+
+    if (total >0){
+        datos();
+    } else {
+        alert("No hay ítems en el carrito");
+    }
+
     let volverComprar = prompt("¿Deseas volver a comprar? Escribe 'si'.");
     if (volverComprar.toLowerCase() == 'si'){
         carritoDeCompras();
